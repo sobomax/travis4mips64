@@ -1,0 +1,10 @@
+language: c
+os: linux
+dist: bionic
+addons:
+  apt:
+    packages:
+      - gcc-mips64-linux-gnuabi64
+      - linux-libc-dev-mips64-cross
+      - qemu-user-static
+script: true
