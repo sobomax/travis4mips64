@@ -8,7 +8,6 @@ addons:
       - libc-dev-mips64-cross
       - qemu-user-static
 script:
-  - cat > hello.c << EOF
   - mips64-linux-gnuabi64-gcc -static  -ohello hello.c
   - file hello
   - ./hello
