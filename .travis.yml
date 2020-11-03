@@ -7,4 +7,8 @@ addons:
       - gcc-mips64-linux-gnuabi64
       - linux-libc-dev-mips64-cross
       - qemu-user-static
-script: true
+script:
+  - cat > hello.c << EOF
+  - mips64-linux-gnuabi64-gcc -static  -ohello hello.c
+  - file hello
+  - ./hello
