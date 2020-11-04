@@ -7,7 +7,11 @@ addons:
       - gcc-mips64-linux-gnuabi64
       - libc-dev-mips64-cross
       - qemu-user-static
+before_script:
+  - sudo dpkg --add-architecture mips64
+  - sudo apt -y update
+  - sudo apt -y install libc6:mips64
 script:
-  - mips64-linux-gnuabi64-gcc -static  -ohello hello.c
+  - mips64-linux-gnuabi64-gcc -ohello hello.c
   - file hello
   - ./hello
