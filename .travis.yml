@@ -15,7 +15,8 @@ addons:
 before_script:
   - update-binfmts --display
   - wget http://ftp.us.debian.org/debian/pool/main/g/glibc/libc6-mips64_2.28-10_mips.deb
-  - sudo dpkg-cross -i -a mips libc6-mips64_2.28-10_mips.deb
+#  - sudo dpkg-cross -i -a mips libc6-mips64_2.28-10_mips.deb
+  - sudo dpkg -i libc6-mips64_2.28-10_mips.deb
 script:
   - mips64-linux-gnuabi64-gcc -ohello hello.c
   - file hello
