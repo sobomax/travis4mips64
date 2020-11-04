@@ -12,7 +12,7 @@ before_script:
   - update-binfmts --display
   - sudo dpkg --add-architecture mips64
   - sudo apt -y update
-  - sudo apt -y install libc6:mips64
+  - sudo apt -y install libc:mips64
 script:
   - mips64-linux-gnuabi64-gcc -ohello hello.c
   - file hello
