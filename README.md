@@ -9,8 +9,8 @@ Travis code.
 
 ## Why MIPS64?
 
-Mostly because it's the only Big Endian architecture with strong ordering
-requirements in existence today.
+Mostly because it's the only Big Endian architecture with strong access
+alighment requirements in existence today.
 
 ## Links
 
