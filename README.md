@@ -11,3 +11,7 @@ Travis code.
 
 Mostly because it's the only Big Endian architecture with strong ordering
 requirements in existence today.
+
+## Links
+
+https://wiki.debian.org/QemuUserEmulation
