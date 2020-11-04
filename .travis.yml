@@ -9,8 +9,11 @@ addons:
       - libc6-mips64-cross
       - qemu-user-static
       - binfmt-support
+      - dpkg-cross
 before_script:
   - update-binfmts --display
+  - wget http://ftp.us.debian.org/debian/pool/main/g/glibc/libc6-mips64_2.28-10_mips.deb
+  - dpkg-cross -i -a mips64 libc6-mips64_2.28-10_mips.deb
 script:
   - mips64-linux-gnuabi64-gcc -ohello hello.c
   - file hello
