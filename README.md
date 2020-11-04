@@ -16,4 +16,5 @@ alighment requirements in existence today.
 
 ## Links
 
-https://wiki.debian.org/QemuUserEmulation
+~~https://wiki.debian.org/QemuUserEmulation~~ Pretty useless/outdated :(
+https://r2wiki.readthedocs.io/en/latest/analysis/arm/
