@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/sobomax/travis4mips64.svg?branch=master)](https://travis-ci.com/sobomax/travis4mips64)
+
 # Welcome to Travis4Mips64 Project
 
 
