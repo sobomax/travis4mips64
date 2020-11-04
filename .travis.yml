@@ -7,7 +7,9 @@ addons:
       - gcc-mips64-linux-gnuabi64
       - libc-dev-mips64-cross
       - qemu-user-static
+      - binfmt-support
 before_script:
+  - update-binfmts --display
   - sudo dpkg --add-architecture mips64
   - sudo apt -y update
   - sudo apt -y install libc6:mips64
