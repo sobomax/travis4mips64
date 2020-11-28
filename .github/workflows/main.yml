@@ -1,0 +1,53 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Main CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, ubuntu-18.04]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: install_depends
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y gcc-mips64-linux-gnuabi64
+          sudo apt-get install -y libc-dev-mips64-cross
+          sudo apt-get install -y libc6-mips64-cross
+          sudo apt-get install -y qemu-user-static
+          sudo apt-get install -y binfmt-support
+
+      - name: QEMU configuration
+        run: |
+          update-binfmts --display
+          sudo mkdir "/usr/mips64-linux-gnuabi64/etc"
+          sudo touch "/usr/mips64-linux-gnuabi64/etc/ld.so.cache"
+          sudo mkdir "/etc/qemu-binfmt"
+          sudo ln -sf "/usr/mips64-linux-gnuabi64" "/etc/qemu-binfmt/mips64"
+
+      - name: Check if it runs
+        run: |
+          mips64-linux-gnuabi64-gcc -ohello hello.c
+          file hello
+          ./hello
